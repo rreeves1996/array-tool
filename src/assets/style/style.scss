@@ -1,0 +1,17 @@
+.added-container {
+	display: flex;
+}
+.unadded-container {
+	display: flex;
+
+	.array-icon {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-content: flex-start;
+
+		p {
+			display: absolute;
+		}
+	}
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import ArrayVisualizer from './components/ArrayVisualizer';
+import Footer from './components/Footer';
+import './assets/style/style.css';
 
 function App() {
 	return (
@@ -10,6 +12,8 @@ function App() {
 			</header>
 
 			<ArrayVisualizer />
+
+			<Footer />
 		</>
 	);
 }

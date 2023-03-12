@@ -1,0 +1,16 @@
+.added-container {
+  display: flex;
+}
+
+.unadded-container {
+  display: flex;
+}
+.unadded-container .array-icon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+.unadded-container .array-icon p {
+  display: absolute;
+}/*# sourceMappingURL=style.css.map */
