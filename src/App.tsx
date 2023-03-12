@@ -1,10 +1,15 @@
 import React from 'react';
+import ArrayVisualizer from './components/ArrayVisualizer';
 
 function App() {
 	return (
 		<>
-			<h1>Array Tooler</h1>
-			<h6>Vizualizer for array manipulation methods</h6>
+			<header>
+				<h1>Array Tooler</h1>
+				<h6>Vizualizer for array manipulation methods</h6>
+			</header>
+
+			<ArrayVisualizer />
 		</>
 	);
 }
