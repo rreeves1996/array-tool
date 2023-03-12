@@ -145,6 +145,7 @@ body {
 }
 .app-wrapper main .visualizer-container .added-container h5 {
   font-size: 5rem;
+  transition: transform 700ms ease-in-out;
 }
 .app-wrapper main .visualizer-container .unadded-container {
   display: flex;
@@ -157,6 +158,8 @@ body {
   justify-content: flex-start;
   align-items: center;
   line-height: 0.7;
+  transition: transform 700ms ease-in-out;
+  width: 3rem;
 }
 .app-wrapper main .visualizer-container .unadded-container .array-icon h5 {
   font-size: 4rem;

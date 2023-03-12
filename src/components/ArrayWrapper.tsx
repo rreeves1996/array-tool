@@ -2,12 +2,12 @@ import React, { ReactElement } from 'react';
 
 type ArrayWrapperProps = {
 	children: JSX.Element[];
-	displayedArray: number[];
+	displayedArrayIcons: number[];
 };
 
 export default function ArrayWrapper({
 	children,
-	displayedArray,
+	displayedArrayIcons,
 }: ArrayWrapperProps) {
 	return (
 		<div>

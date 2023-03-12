@@ -66,6 +66,8 @@ body {
 
 				h5 {
 					font-size: 5rem;
+
+					transition: transform 700ms ease-in-out;
 				}
 			}
 
@@ -80,9 +82,13 @@ body {
 					justify-content: flex-start;
 					align-items: center;
 					line-height: 0.7;
+					transition: transform 700ms ease-in-out;
+					width: 3rem;
+
 					h5 {
 						font-size: 4rem;
 					}
+
 					p {
 						display: absolute;
 						font-family: $accentText;

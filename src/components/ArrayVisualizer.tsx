@@ -11,8 +11,6 @@ export type Icon = {
 };
 
 export default function ArrayVisualizer() {
-	const [displayedArray, setDisplayedArray] = useState<number[]>([0, 1, 2]);
-	const [unAddedIcons, setUnAddedIcons] = useState<number[]>([3, 4, 5, 6]);
 	const [arrayIcons, setArrayIcons] = useState<Icon[]>([
 		{
 			ball: 'football',
@@ -57,14 +55,20 @@ export default function ArrayVisualizer() {
 			position: 3,
 		},
 	]);
+	const [displayedArrayIcons, setDisplayedArrayIcons] = useState<number[]>([
+		0, 1, 2,
+	]);
+	const [unAddedIcons, setUnAddedIcons] = useState<number[]>([3, 4, 5, 6]);
 
 	useEffect(() => {
 		let newArrayIcons = [...arrayIcons];
 
 		for (let i = 0; i < arrayIcons.length; i++) {
-			if (displayedArray.includes(arrayIcons[i].value)) {
+			if (displayedArrayIcons.includes(arrayIcons[i].value)) {
 				newArrayIcons[i].isAdded = true;
-				newArrayIcons[i].position = displayedArray.indexOf(arrayIcons[i].value);
+				newArrayIcons[i].position = displayedArrayIcons.indexOf(
+					arrayIcons[i].value
+				);
 			} else {
 				newArrayIcons[i].isAdded = false;
 				newArrayIcons[i].position = unAddedIcons.indexOf(arrayIcons[i].value);
@@ -72,7 +76,7 @@ export default function ArrayVisualizer() {
 		}
 
 		setArrayIcons((prevState) => newArrayIcons);
-	}, [displayedArray]);
+	}, [displayedArrayIcons]);
 
 	useEffect(() => {
 		let icons = document.querySelectorAll<HTMLElement>('.array-icon');
@@ -81,22 +85,59 @@ export default function ArrayVisualizer() {
 		for (let i = 0; i < arrayIcons.length; i++) {
 			icons[i].style.transform = `translate(${
 				arrayIcons[i].isAdded
-					? arrayIcons[i].position * 4 + 0.5
+					? arrayIcons[i].position * 4 + 1.8
 					: arrayIcons[i].position * 4
-			}em, ${arrayIcons[i].isAdded ? -5 : 1}rem)`;
+			}rem, ${arrayIcons[i].isAdded ? -5 : 1}rem)`;
 		}
 
-		bracket!.style.transform = `translateX(${displayedArray.length * 0.7}em)`;
+		// Length of displayed array + margin
+		bracket!.style.transform = `translateX(${
+			displayedArrayIcons.length * 4
+		}rem)`;
 	}, [arrayIcons]);
+
+	const handleMethod = (method: string) => {
+		switch (method) {
+			case 'PUSH': {
+				let newDisplayedArrayIcons = [...displayedArrayIcons];
+				let newUnAddedIcons = [...unAddedIcons];
+				let newArrayIcons = [...arrayIcons];
+
+				newDisplayedArrayIcons.push(unAddedIcons[0]);
+				newUnAddedIcons.unshift();
+
+				newArrayIcons.filter((icon) => {
+					if (icon.value === unAddedIcons[0]) {
+						icon.isAdded = true;
+						icon.position = newDisplayedArrayIcons.length;
+					} else if (icon.isAdded === false) {
+						console.log('hello');
+						icon.position = newArrayIcons.indexOf(icon);
+						console.log(icon.position);
+					}
+				});
+
+				setDisplayedArrayIcons((prevState) => newDisplayedArrayIcons);
+				setUnAddedIcons((prevState) => newUnAddedIcons);
+				setArrayIcons((prevState) => newArrayIcons);
+			}
+			case 'POP': {
+			}
+			case 'SHIFT': {
+			}
+			case 'UNSHIFT': {
+			}
+		}
+	};
 
 	return (
 		<section className='visualizer-container'>
-			<ArrayWrapper displayedArray={displayedArray}>
+			<ArrayWrapper displayedArrayIcons={displayedArrayIcons}>
 				{arrayIcons.map((icon) => (
 					<ArrayIcon ball={icon} />
 				))}
 			</ArrayWrapper>
-			<ArrayMethods />
+			<ArrayMethods handleMethod={handleMethod} />
 		</section>
 	);
 }
