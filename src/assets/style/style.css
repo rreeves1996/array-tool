@@ -1,16 +1,176 @@
-.added-container {
-  display: flex;
+@font-face {
+  font-family: "Qualy";
+  src: local("Qualy"), url("./fonts/Qualy/Qualy.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Qualy";
+  src: local("Qualy"), url("./fonts/Qualy/Qualy-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+  margin: 0;
 }
 
-.unadded-container {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alumni Sans Pinstripe";
+}
+
+div,
+p,
+span {
+  font-family: "Roboto";
+}
+
+body {
+  margin: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+.app-wrapper main {
+  height: calc(100vh - 3rem);
+}
+.app-wrapper main header {
+  text-align: center;
+}
+.app-wrapper main header h1 {
+  font-size: 6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.app-wrapper main header h6 {
+  font-size: 1.5rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.app-wrapper main .visualizer-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 10rem;
+}
+.app-wrapper main .visualizer-container .added-container {
   display: flex;
 }
-.unadded-container .array-icon {
+.app-wrapper main .visualizer-container .added-container h5 {
+  font-size: 5rem;
+}
+.app-wrapper main .visualizer-container .unadded-container {
+  display: flex;
+  height: 7rem;
+}
+.app-wrapper main .visualizer-container .unadded-container .array-icon {
   position: absolute;
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 0.7;
 }
-.unadded-container .array-icon p {
+.app-wrapper main .visualizer-container .unadded-container .array-icon h5 {
+  font-size: 4rem;
+}
+.app-wrapper main .visualizer-container .unadded-container .array-icon p {
   display: absolute;
+  font-family: "Alumni Sans Pinstripe";
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.app-wrapper footer {
+  display: flex;
+  height: 3rem;
+  justify-self: flex-end;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */

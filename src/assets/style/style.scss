@@ -1,17 +1,104 @@
-.added-container {
-	display: flex;
+@import './fonts';
+@import './variables';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+	margin: 0;
 }
-.unadded-container {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $accentText;
+}
+
+div,
+p,
+span {
+	font-family: $primaryText;
+}
+
+body {
+	margin: 0;
+}
+.app-wrapper {
 	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
 
-	.array-icon {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		align-content: flex-start;
+	main {
+		height: calc(100vh - 3rem);
+		header {
+			text-align: center;
 
-		p {
-			display: absolute;
+			h1 {
+				font-size: 6rem;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+			h6 {
+				font-size: 1.5rem;
+				font-family: $primaryText;
+				font-weight: 400;
+				letter-spacing: -1px;
+			}
 		}
+
+		.visualizer-container {
+			display: flex;
+			flex-direction: column;
+			min-height: 10rem;
+
+			.added-container {
+				display: flex;
+
+				h5 {
+					font-size: 5rem;
+				}
+			}
+
+			.unadded-container {
+				display: flex;
+				height: 7rem;
+
+				.array-icon {
+					position: absolute;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					line-height: 0.7;
+					h5 {
+						font-size: 4rem;
+					}
+					p {
+						display: absolute;
+						font-family: $accentText;
+						font-size: 1.5rem;
+						font-weight: 900;
+					}
+				}
+			}
+		}
+	}
+
+	footer {
+		display: flex;
+		height: 3rem;
+		justify-self: flex-end;
+		justify-content: center;
+		align-items: center;
 	}
 }

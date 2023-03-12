@@ -76,12 +76,17 @@ export default function ArrayVisualizer() {
 
 	useEffect(() => {
 		let icons = document.querySelectorAll<HTMLElement>('.array-icon');
+		let bracket = document.querySelector<HTMLElement>('.right-bracket');
 
 		for (let i = 0; i < arrayIcons.length; i++) {
-			icons[i].style.transform = `translate(${arrayIcons[i].position * 5}em, ${
-				arrayIcons[i].isAdded ? -5 : 0
-			}rem)`;
+			icons[i].style.transform = `translate(${
+				arrayIcons[i].isAdded
+					? arrayIcons[i].position * 4 + 0.5
+					: arrayIcons[i].position * 4
+			}em, ${arrayIcons[i].isAdded ? -5 : 1}rem)`;
 		}
+
+		bracket!.style.transform = `translateX(${displayedArray.length * 0.7}em)`;
 	}, [arrayIcons]);
 
 	return (
