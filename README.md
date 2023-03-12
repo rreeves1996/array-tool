@@ -39,13 +39,21 @@ Here is a list of my initial objectives:
 
     Features:
 
-        * The array itself, represented by Font Awesome icons inside of brackets
+      * The array itself, represented by Font Awesome icons inside of brackets
 
-        * Some kind of way to represent values inside of the array (i.e. opacity, with the icon with the value of 1 being the lightest)
+      * Some kind of way to represent values inside of the array (i.e. opacity, with the icon with the value of 1 being the lightest)
 
-        * The methods, including push, shift, unshift, splice, sort, map, filter, and forEach
+      * The methods, including push, pop, shift, unshift, splice, sort, map, filter, includes and forEach
 
-        * Minimal UI with icons for the array shifting smoothly based on the input, not just rendering a new array w/ out a transition
+      * Minimal UI with icons for the array shifting smoothly based on the input, not just rendering a new array w/ out a transition
+
+      * Some kind of way to either view my development log/process in the app, or a way to easily access it via redirect (not ideal)
+
+    I decided that I will shoot for the MVP first, which to me meant the interface for modifying the array, the array itself, and five of the methods listed (push, pop, shift, unshift, and splice). 
+
+At this point in time, I am already thinking the biggest challenge will involve the animations. Because I don't want the array icons to just disappear and reappear in the array when adding/removing (I want them to smoothly move from the list of available icons into their proper position in the array), I knew it was going to take some tricky methods to get the animations to work properly, most likely with absolute positioning. I decided to start by operating under the assumption I would do it this way, so that I could program the functionality in a way that would make this method easily applicable. 
+With this in mind, I decided that for the functionality, I wasn't going to translating what the user is seeing directly into the code - that is, it wouldn't be as simple as adding to or removing to the array itself from a pool of options, with the array itself simply displaying. If I wanted to animate the icons how I wanted, I needed the element to be the same element, whether it was in the array or outside of it. I wouldn't be adding it to the array to make it appear; I would be simply changing a property on the element that either positioned it in the pool of icons able to be added, or its position in the array based on the user's input.
+First off would be creating states at the highest level component to track the array items.
 
 ## Contact
 
