@@ -18,12 +18,12 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 					<code>.pop()</code>
 				</button>
 
-				<button onClick={() => handleMethod('SHIFT')}>
-					<code>.shift()</code>
-				</button>
-
 				<button onClick={() => handleMethod('UNSHIFT')}>
 					<code>.unshift()</code>
+				</button>
+
+				<button onClick={() => handleMethod('SHIFT')}>
+					<code>.shift()</code>
 				</button>
 			</div>
 		</section>
