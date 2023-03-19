@@ -83,39 +83,74 @@ export default function ArrayVisualizer() {
 	const handleMethod = (method: string) => {
 		switch (method) {
 			case 'PUSH': {
-				let newDisplayedArrayIcons = [...displayedArrayIcons];
-				let newUnAddedIcons = [...unAddedIcons];
-				let newArrayIcons = [...arrayIcons];
+				handlePush();
 
-				newDisplayedArrayIcons.push(unAddedIcons[0]);
-				newUnAddedIcons.shift();
-				console.log(newUnAddedIcons);
-
-				newArrayIcons.filter((icon) => {
-					if (icon.value === unAddedIcons[0]) {
-						icon.isAdded = true;
-						icon.position = newDisplayedArrayIcons.length - 1;
-					} else if (icon.isAdded === false) {
-						console.log('hello');
-						icon.position = newUnAddedIcons.indexOf(icon.value);
-						// console.log(icon.position);
-					}
-				});
-
-				setDisplayedArrayIcons((prevState) => newDisplayedArrayIcons);
-				console.log('Added: ' + newDisplayedArrayIcons);
-				setUnAddedIcons((prevState) => newUnAddedIcons);
-				console.log('UnAdded: ' + newUnAddedIcons);
-				setArrayIcons((prevState) => newArrayIcons);
-				console.log('Array: ' + newArrayIcons);
+				break;
 			}
 			case 'POP': {
+				handlePop();
+
+				break;
 			}
 			case 'SHIFT': {
+				break;
 			}
 			case 'UNSHIFT': {
+				break;
+			}
+			default: {
+				break;
 			}
 		}
+	};
+
+	const handlePush = () => {
+		let newDisplayedArrayIcons = [...displayedArrayIcons];
+		let newUnAddedIcons = [...unAddedIcons];
+		let newArrayIcons = [...arrayIcons];
+
+		newDisplayedArrayIcons.push(unAddedIcons[0]);
+		newUnAddedIcons.shift();
+
+		newArrayIcons.filter((icon) => {
+			if (icon.value === unAddedIcons[0]) {
+				icon.isAdded = true;
+				icon.position = newDisplayedArrayIcons.length - 1;
+			} else if (icon.isAdded === false) {
+				icon.position = newUnAddedIcons.indexOf(icon.value);
+			}
+		});
+
+		setDisplayedArrayIcons((prevState) => newDisplayedArrayIcons);
+		setUnAddedIcons((prevState) => newUnAddedIcons);
+		setArrayIcons((prevState) => newArrayIcons);
+	};
+
+	const handlePop = () => {
+		let newDisplayedArrayIcons = [...displayedArrayIcons];
+		let newUnAddedIcons = [...unAddedIcons];
+		let newArrayIcons = [...arrayIcons];
+
+		newUnAddedIcons.push(
+			newDisplayedArrayIcons[newDisplayedArrayIcons.length - 1]
+		);
+		newDisplayedArrayIcons.pop();
+		console.log(newUnAddedIcons[newUnAddedIcons.length - 1]);
+
+		newArrayIcons.filter((icon) => {
+			if (icon.value === newUnAddedIcons[newUnAddedIcons.length - 1]) {
+				icon.isAdded = false;
+				icon.position = newUnAddedIcons.length - 1;
+			} else if (icon.isAdded === false) {
+				icon.position = newUnAddedIcons.indexOf(icon.value);
+			}
+		});
+
+		console.log(newArrayIcons);
+
+		setDisplayedArrayIcons((prevState) => newDisplayedArrayIcons);
+		setUnAddedIcons((prevState) => newUnAddedIcons);
+		setArrayIcons((prevState) => newArrayIcons);
 	};
 
 	return (
