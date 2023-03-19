@@ -27,10 +27,10 @@ Once again, this app idea was not my own - it was based off of a demo I saw on m
 
 ## Development Log
 
-### 3/11/2023:
-
 I created a fresh React app using Vite, and then cleared up some of the default files/JSX to start with a clean slate. As I was finishing up the initial clean up, and replacing the default App.js boilerplate with fresh code that had a heading for the app, my first instinct was to think about my ideal component structure. Since I had created an h1 and an h6, and I knew the app's functional components were coming next, it was easy to autopilot here and just continue in my impulsive thought process/lack of planning.
+
 Although this isn't necessarily the worst option, I took a second to think critically about what the most efficient thing to do first would be. Following about 5 seconds of thinking critically, I realized this hunch to think about component structure was coming from the inner junior dev/UI fanatic in me, not from a place of understanding the best first option.
+
 So, as a junior dev attempting to create good new habits and work more efficiently, I decided to back up and do some planning, starting at the broadest scope I could. This, to me, was simply typing out my broad objectives for the app and how I wanted it to function.
 
 Here is a list of my initial objectives:
@@ -49,11 +49,33 @@ Here is a list of my initial objectives:
 
       * Some kind of way to either view my development log/process in the app, or a way to easily access it via redirect (not ideal)
 
-    I decided that I will shoot for the MVP first, which to me meant the interface for modifying the array, the array itself, and five of the methods listed (push, pop, shift, unshift, and splice). 
+    I decided that I will shoot for the MVP first, which to me meant the interface for modifying the array, the array itself, and five of the methods listed (push, pop, shift, unshift, and splice).
 
-At this point in time, I am already thinking the biggest challenge will involve the animations. Because I don't want the array icons to just disappear and reappear in the array when adding/removing (I want them to smoothly move from the list of available icons into their proper position in the array), I knew it was going to take some tricky methods to get the animations to work properly, most likely with absolute positioning. I decided to start by operating under the assumption I would do it this way, so that I could program the functionality in a way that would make this method easily applicable. 
+At this point in time, I am already thinking the biggest challenge will involve the animations. Because I don't want the array icons to just disappear and reappear in the array when adding/removing (I want them to smoothly move from the list of available icons into their proper position in the array), I knew it was going to take some tricky methods to get the animations to work properly, most likely with absolute positioning. I decided to start by operating under the assumption I would do it this way, so that I could program the functionality in a way that would make this method easily applicable.
+
 With this in mind, I decided that for the functionality, I wasn't going to translating what the user is seeing directly into the code - that is, it wouldn't be as simple as adding to or removing to the array itself from a pool of options, with the array itself simply displaying. If I wanted to animate the icons how I wanted, I needed the element to be the same element, whether it was in the array or outside of it. I wouldn't be adding it to the array to make it appear; I would be simply changing a property on the element that either positioned it in the pool of icons able to be added, or its position in the array based on the user's input.
-First off would be creating states at the highest level component to track the array items.
+
+First off would be creating states at the highest level component to track the array items. I decided to create a state for all of the array icons as objects with properties isAdded, position, and a "key" for each icon (numbers 0 - 6). Then I would create a state for the icons that are added, and one with the icons that aren't added. This way, I would have an easy way to track both arrays while technically still having all of the icons themselves in the same array in order to animate them properly, and not have them disappearing and reappearing in their arrays when using the various methods. By having states that represent the arrays actually being displayed to the user, I could modify these arrays concurrent with the user's input, which would make it easy to track an icon's position within its arrays.
+
+I created the three states, then did some very basic styling, as well as mapping the elements on the page. The elements on the page are being mapped from the state containing all of the array icons as objects, and not from the states that represent the arrays being displayed (the unadded icons and the added array icons).
+
+Then, after creating four method buttons(push, pop, unshift, and shift - saving splice until after these four basic methods are complete) it was time to see how my approach would pan out! In order to avoid too much prop drilling, I created a "handleMethod" function that I would pass down to the button container component. This would take in a string correlating with the method called by the user, and perform the correct method by calling a switch statement based on the inputted string. Each switch conditional calls the individual function for the method, that way I don't have to pass down a function for every method, which saves me the headache of passing down every new function I create or plan to in the future.
+
+I started with the push method. My basic plan for the function was to:
+
+- Create a copy of each of the three arrays as to not manipulate state directly
+
+- Perform the push on the array
+
+- Remove the pushed icon from the array of unadded icons
+
+- Update the stateful array of the icon objects, which included changing "isAdded" to true for the appropriate object, and updating its position property to correlate with its position in the array it was moved to. This is easily calculated since we already have an updated array with the icon in it - we just grab the length of that array, and change the icon's position to that. Then, in the same filter function, we can subtract the position of the icons that aren't added in order to shift them a position to compensate for the icon being removed from the unadded icons array.
+
+Since we're adding the element to the end of the array, we don't have to shift the array of added icons, so this should complete the function! Then I simply updated the states by changing them to the new, modified arrays.
+
+In order to properly animate the icons, I'm going to have to modify their styling within the JS, translating their position based on the "position" property in their correlated object. I simply multiplied their position by about 2em in a useEffect, and it spaced them out evenly and neatly. By adding the array of icons as a dependancy for the useEffect, it would recalculate and translate their positions whenever a re-render was triggered, which would be triggered by the array of icons changing. Perfect! I also made a translate for the right bracket of the array as well, so that it would move dynamically based on the size of the array.
+
+It looks like my planning paid off, because after creating the push function and testing it out, everything worked perfectly! The first icon from the unadded array smoothly moved from the unadded array into the array of added icons, and the bracket moved accordingly to accomodate the new icon. In the console logs, I could see that the key of the icon being pushed was added to the array of added icons, removed from the beginning of the array of unadded icons, and the icon object with the corresponding key's "isAdded" property was being changed to true, and its position being changed to represent its position in its new array. A lot of words to explain something so simple happening, but I was impressed everything worked accordingly on the first go!
 
 ## Contact
 
