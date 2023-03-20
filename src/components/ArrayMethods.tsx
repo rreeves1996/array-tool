@@ -26,6 +26,23 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 					<code>.shift()</code>
 				</button>
 			</div>
+			<button>
+				<code>
+					.slice({` `}
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>{' '}
+					,{' '}
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>{' '}
+					)
+				</code>
+			</button>
 		</section>
 	);
 }
