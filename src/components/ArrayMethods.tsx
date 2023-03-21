@@ -26,7 +26,7 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 					<code>.shift()</code>
 				</button>
 			</div>
-			<button>
+			{/* <button>
 				<code>
 					.slice({` `}
 					<select>
@@ -42,7 +42,7 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 					</select>{' '}
 					)
 				</code>
-			</button>
+			</button> */}
 		</section>
 	);
 }
