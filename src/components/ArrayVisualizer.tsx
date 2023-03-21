@@ -70,8 +70,6 @@ export default function ArrayVisualizer() {
 					? arrayIcons[i].position * 4.1 + 1.8
 					: arrayIcons[i].position * 4.1
 			}rem, ${arrayIcons[i].isAdded ? -5 : 1}rem)`;
-
-			console.log(arrayIcons[i]);
 		}
 
 		// Length of displayed array + margin
@@ -83,22 +81,30 @@ export default function ArrayVisualizer() {
 	const handleMethod = (method: string) => {
 		switch (method) {
 			case 'PUSH': {
-				handlePush();
+				if (unAddedIcons[0] !== undefined) {
+					handlePush();
+				}
 
 				break;
 			}
 			case 'POP': {
-				handlePop();
+				if (displayedArrayIcons[0] !== undefined) {
+					handlePop();
+				}
 
 				break;
 			}
 			case 'UNSHIFT': {
-				handleUnshift();
+				if (unAddedIcons[0] !== undefined) {
+					handleUnshift();
+				}
 
 				break;
 			}
 			case 'SHIFT': {
-				handleShift();
+				if (displayedArrayIcons[0] !== undefined) {
+					handleShift();
+				}
 
 				break;
 			}
@@ -113,7 +119,7 @@ export default function ArrayVisualizer() {
 		let newUnAddedIcons = [...unAddedIcons];
 		let newArrayIcons = [...arrayIcons];
 
-		newDisplayedArrayIcons.push(unAddedIcons[0]);
+		newDisplayedArrayIcons.push(newUnAddedIcons[0]);
 		newUnAddedIcons.shift();
 
 		newArrayIcons.filter((icon) => {
@@ -201,6 +207,8 @@ export default function ArrayVisualizer() {
 		setUnAddedIcons((prevState) => newUnAddedIcons);
 		setArrayIcons((prevState) => newArrayIcons);
 	};
+
+	const handleSplice = () => {};
 
 	return (
 		<section className='visualizer-container'>
