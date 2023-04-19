@@ -1,5 +1,6 @@
 @import './fonts';
 @import './variables';
+@import './mixins';
 
 h1,
 h2,
@@ -30,15 +31,16 @@ span {
 body {
 	margin: 0;
 }
+
 .app-wrapper {
-	display: flex;
+	@include flexColumnAlign(center);
+
 	width: 100vw;
 	height: 100vh;
-	flex-direction: column;
-	align-items: center;
 
 	main {
 		height: calc(100vh - 3rem);
+
 		header {
 			text-align: center;
 
@@ -57,8 +59,8 @@ body {
 		}
 
 		.visualizer-container {
-			display: flex;
-			flex-direction: column;
+			@include flexColumnJustify(center);
+
 			min-height: 10rem;
 
 			.added-container {
@@ -76,11 +78,10 @@ body {
 				height: 7rem;
 
 				.array-icon {
+					@include flexJustifyAlign(flex-start, center);
+
 					position: absolute;
-					display: flex;
 					flex-direction: column;
-					justify-content: flex-start;
-					align-items: center;
 					line-height: 0.7;
 					transition: transform 400ms ease-in-out;
 					width: 3rem;
@@ -101,10 +102,9 @@ body {
 	}
 
 	footer {
-		display: flex;
+		@include flexCenter;
+
 		height: 3rem;
 		justify-self: flex-end;
-		justify-content: center;
-		align-items: center;
 	}
 }
