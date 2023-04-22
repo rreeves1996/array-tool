@@ -4,7 +4,7 @@
 <h1 align="center">Array Tool</h1>
 
   <p align="center">
-  <img src="assets/preview.png" alt="Logo" width="550" height="550">
+  <img src="src/assets/preview.png" alt="Logo" width="550" height="550">
     <br />
     Array manipulation vizualizer created by Ryan Reeves
     <br />
