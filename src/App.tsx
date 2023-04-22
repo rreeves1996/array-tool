@@ -8,8 +8,9 @@ function App() {
 		<div className='app-wrapper'>
 			<main>
 				<header>
-					<h1>Array Tool</h1>
-					<h6>Vizualizer for array manipulation methods</h6>
+					<h1>
+						.array<strong>Tool</strong>();
+					</h1>
 				</header>
 
 				<ArrayVisualizer />
