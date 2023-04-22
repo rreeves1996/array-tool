@@ -191,12 +191,18 @@ body {
   font-size: 1.5rem;
   font-weight: 900;
 }
-.app-wrapper main .app-container .visualizer-container .array-methods .button-container {
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 1rem;
 }
-.app-wrapper main .app-container .visualizer-container .array-methods .button-container .method-button {
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container .method-button-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container .method-button-container .method-button {
   background: linear-gradient(166deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
   padding: 0.5rem 0.8rem;
   border: none;
@@ -206,8 +212,14 @@ body {
   text-shadow: 1px 2px 0px rgba(31, 29, 29, 0.568);
   transition: background 400ms ease-in-out !important;
 }
-.app-wrapper main .app-container .visualizer-container .array-methods .button-container .method-button:hover {
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container .method-button-container .method-button:hover {
   background: linear-gradient(166deg, rgba(255, 255, 255, 0.1213172269) 0%, rgba(255, 255, 255, 0.0960959384) 100%);
+}
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container .method-button-container .add-icon {
+  color: rgba(107, 255, 107, 0.712);
+}
+.app-wrapper main .app-container .visualizer-container .array-methods .buttons-container .method-button-container .subtract-icon {
+  color: rgba(253, 120, 120, 0.9058823529);
 }
 .app-wrapper footer {
   display: flex;

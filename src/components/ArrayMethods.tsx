@@ -7,24 +7,44 @@ type ArrayMethodsProps = {
 export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 	return (
 		<section className='array-methods'>
-			<div className='button-container'>
-				<button className='method-button' onClick={() => handleMethod('PUSH')}>
-					<code>.push()</code>
-				</button>
+			<div className='buttons-container'>
+				<div className='method-button-container'>
+					<button
+						className='method-button'
+						onClick={() => handleMethod('UNSHIFT')}>
+						<code>.unshift()</code>
+					</button>
 
-				<button className='method-button' onClick={() => handleMethod('POP')}>
-					<code>.pop()</code>
-				</button>
+					<strong className='add-icon'>+</strong>
+				</div>
 
-				<button
-					className='method-button'
-					onClick={() => handleMethod('UNSHIFT')}>
-					<code>.unshift()</code>
-				</button>
+				<div className='method-button-container'>
+					<button
+						className='method-button'
+						onClick={() => handleMethod('PUSH')}>
+						<code>.push()</code>
+					</button>
 
-				<button className='method-button' onClick={() => handleMethod('SHIFT')}>
-					<code>.shift()</code>
-				</button>
+					<strong className='add-icon'>+</strong>
+				</div>
+
+				<div className='method-button-container'>
+					<button
+						className='method-button'
+						onClick={() => handleMethod('SHIFT')}>
+						<code>.shift()</code>
+					</button>
+
+					<strong className='subtract-icon'>-</strong>
+				</div>
+
+				<div className='method-button-container'>
+					<button className='method-button' onClick={() => handleMethod('POP')}>
+						<code>.pop()</code>
+					</button>
+
+					<strong className='subtract-icon'>-</strong>
+				</div>
 			</div>
 			{/* <button>
 				<code>
