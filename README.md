@@ -13,7 +13,7 @@
     ·
     <a href="https://github.com/rreeves1996/array-tooler/features">Inquire About Features</a>
     <br />
-    <a href='#'>Heroku Deployment</a>
+    <a href='https://array-tool.vercel.app/'>Vercel Deployment</a>
   </p>
 </div>
 
