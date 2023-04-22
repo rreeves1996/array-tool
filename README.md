@@ -1,19 +1,13 @@
 <a name="readme-top"></a>
 
 <div align="center">
-<h1 align="center">Array Tooler</h1>
+<h1 align="center">Array Tool</h1>
 
   <p align="center">
-    <img src='./src/assets/react_icon.png' alt='screenshot' width="100">
-    <br />
     <br />
     Array manipulation vizualizer created by Ryan Reeves
     <br />
-    <a href="https://github.com/rreeves1996/array-tooler/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/rreeves1996/array-tooler/features">Inquire About Features</a>
-    <br />
-    <a href='#'>Heroku Deployment</a>
+    <a href='https://array-tool.vercel.app/'>Vercel Deployment</a>
   </p>
 </div>
 
