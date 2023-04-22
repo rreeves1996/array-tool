@@ -7,13 +7,15 @@ function App() {
 	return (
 		<div className='app-wrapper'>
 			<main>
-				<header>
-					<h1>
-						.array<strong>Tool</strong>();
-					</h1>
-				</header>
+				<section className='app-container'>
+					<header>
+						<h1>
+							.array<strong>Tool</strong>();
+						</h1>
+					</header>
 
-				<ArrayVisualizer />
+					<ArrayVisualizer />
+				</section>
 			</main>
 
 			<Footer />

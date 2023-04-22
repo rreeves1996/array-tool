@@ -10,55 +10,46 @@ export type Icon = {
 	position: number;
 };
 
+const ARRAY_ICONS = [
+	{
+		ball: 'football',
+		value: 0,
+		isAdded: true,
+		position: 0,
+	},
+	{
+		ball: 'baseball',
+		value: 1,
+		isAdded: true,
+		position: 1,
+	},
+	{
+		ball: 'basketball',
+		value: 2,
+		isAdded: false,
+		position: 0,
+	},
+	{
+		ball: 'bowlingball',
+		value: 3,
+		isAdded: false,
+		position: 1,
+	},
+
+	{
+		ball: 'soccerball',
+		value: 4,
+		isAdded: false,
+		position: 2,
+	},
+];
+
 export default function ArrayVisualizer() {
-	const [arrayIcons, setArrayIcons] = useState<Icon[]>([
-		{
-			ball: 'football',
-			value: 0,
-			isAdded: true,
-			position: 0,
-		},
-		{
-			ball: 'baseball',
-			value: 1,
-			isAdded: true,
-			position: 1,
-		},
-		{
-			ball: 'basketball',
-			value: 2,
-			isAdded: true,
-			position: 2,
-		},
-		{
-			ball: 'bowlingball',
-			value: 3,
-			isAdded: false,
-			position: 0,
-		},
-		{
-			ball: 'cricketball',
-			value: 4,
-			isAdded: false,
-			position: 1,
-		},
-		{
-			ball: 'soccerball',
-			value: 5,
-			isAdded: false,
-			position: 2,
-		},
-		{
-			ball: 'tennisball',
-			value: 6,
-			isAdded: false,
-			position: 3,
-		},
-	]);
+	const [arrayIcons, setArrayIcons] = useState<Icon[]>([...ARRAY_ICONS]);
 	const [displayedArrayIcons, setDisplayedArrayIcons] = useState<number[]>([
-		0, 1, 2,
+		0, 1,
 	]);
-	const [unAddedIcons, setUnAddedIcons] = useState<number[]>([3, 4, 5, 6]);
+	const [unAddedIcons, setUnAddedIcons] = useState<number[]>([2, 3, 4]);
 
 	useEffect(() => {
 		let icons = document.querySelectorAll<HTMLElement>('.array-icon');
@@ -69,12 +60,12 @@ export default function ArrayVisualizer() {
 				arrayIcons[i].isAdded
 					? arrayIcons[i].position * 4.1 + 1.8
 					: arrayIcons[i].position * 4.1
-			}rem, ${arrayIcons[i].isAdded ? -5 : 1}rem)`;
+			}rem, ${arrayIcons[i].isAdded ? -6 : 1}rem)`;
 		}
 
 		// Length of displayed array + margin
 		bracket!.style.transform = `translateX(${
-			displayedArrayIcons.length * 4
+			displayedArrayIcons.length * 4.08
 		}rem)`;
 	}, [arrayIcons]);
 
@@ -208,7 +199,7 @@ export default function ArrayVisualizer() {
 		setArrayIcons((prevState) => newArrayIcons);
 	};
 
-	const handleSplice = () => {};
+	// const handleSplice = () => {};
 
 	return (
 		<section className='visualizer-container'>

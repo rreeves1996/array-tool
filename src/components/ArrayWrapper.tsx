@@ -12,8 +12,8 @@ export default function ArrayWrapper({
 	return (
 		<div className='array-container'>
 			<section className='added-container'>
-				<h5 className='left-bracket'>[</h5>
-				<h5 className='right-bracket'>]</h5>
+				<h5 className='left-bracket bracket'>[</h5>
+				<h5 className='right-bracket bracket'>]</h5>
 			</section>
 
 			<section className='unadded-container'>{children}</section>

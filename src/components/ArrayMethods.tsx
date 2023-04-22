@@ -6,23 +6,23 @@ type ArrayMethodsProps = {
 
 export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 	return (
-		<section>
-			<p>Methods:</p>
-
+		<section className='array-methods'>
 			<div className='button-container'>
-				<button onClick={() => handleMethod('PUSH')}>
+				<button className='method-button' onClick={() => handleMethod('PUSH')}>
 					<code>.push()</code>
 				</button>
 
-				<button onClick={() => handleMethod('POP')}>
+				<button className='method-button' onClick={() => handleMethod('POP')}>
 					<code>.pop()</code>
 				</button>
 
-				<button onClick={() => handleMethod('UNSHIFT')}>
+				<button
+					className='method-button'
+					onClick={() => handleMethod('UNSHIFT')}>
 					<code>.unshift()</code>
 				</button>
 
-				<button onClick={() => handleMethod('SHIFT')}>
+				<button className='method-button' onClick={() => handleMethod('SHIFT')}>
 					<code>.shift()</code>
 				</button>
 			</div>
