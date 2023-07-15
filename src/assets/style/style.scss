@@ -70,7 +70,7 @@ body {
 
 			.visualizer-container {
 				@include flexColumnJustify(center);
-				color: rgb(247, 246, 246);
+				color: rgba(245, 236, 236, 0.952);
 				min-height: 11.5rem;
 				padding: 1.5rem 2rem;
 				border-radius: 6px;
@@ -94,7 +94,7 @@ body {
 					}
 
 					.bracket {
-						filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
+						// filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
 
 						opacity: 0.9;
 					}
@@ -107,7 +107,7 @@ body {
 
 					.array-icon {
 						@include flexJustifyAlign(flex-start, center);
-						filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
+						// filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
 
 						opacity: 0.9;
 						position: absolute;

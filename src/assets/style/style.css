@@ -145,7 +145,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: rgb(247, 246, 246);
+  color: rgba(245, 236, 236, 0.952);
   min-height: 11.5rem;
   padding: 1.5rem 2rem;
   border-radius: 6px;
@@ -162,7 +162,6 @@ body {
   transition: transform 550ms ease-in-out;
 }
 .app-wrapper main .app-container .visualizer-container .added-container .bracket {
-  filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
   opacity: 0.9;
 }
 .app-wrapper main .app-container .visualizer-container .unadded-container {
@@ -174,7 +173,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.479));
   opacity: 0.9;
   position: absolute;
   flex-direction: column;

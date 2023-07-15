@@ -1,14 +1,10 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 type ArrayWrapperProps = {
 	children: JSX.Element[];
-	displayedArrayIcons: number[];
 };
 
-export default function ArrayWrapper({
-	children,
-	displayedArrayIcons,
-}: ArrayWrapperProps) {
+export default function ArrayWrapper({ children }: ArrayWrapperProps) {
 	return (
 		<div className='array-container'>
 			<section className='added-container'>

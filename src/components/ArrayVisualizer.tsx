@@ -55,6 +55,7 @@ export default function ArrayVisualizer() {
 		let icons = document.querySelectorAll<HTMLElement>('.array-icon');
 		let bracket = document.querySelector<HTMLElement>('.right-bracket');
 
+		// Iterate through icons and space them based on their position and the "isAdded" property
 		for (let i = 0; i < arrayIcons.length; i++) {
 			icons[i].style.transform = `translate(${
 				arrayIcons[i].isAdded
@@ -69,34 +70,23 @@ export default function ArrayVisualizer() {
 		}rem)`;
 	}, [arrayIcons]);
 
+	// Here we make sure there is an icon available to perform the selected method on
 	const handleMethod = (method: string) => {
 		switch (method) {
 			case 'PUSH': {
-				if (unAddedIcons[0] !== undefined) {
-					handlePush();
-				}
-
+				if (unAddedIcons[0] !== undefined) handlePush();
 				break;
 			}
 			case 'POP': {
-				if (displayedArrayIcons[0] !== undefined) {
-					handlePop();
-				}
-
+				if (displayedArrayIcons[0] !== undefined) handlePop();
 				break;
 			}
 			case 'UNSHIFT': {
-				if (unAddedIcons[0] !== undefined) {
-					handleUnshift();
-				}
-
+				if (unAddedIcons[0] !== undefined) handleUnshift();
 				break;
 			}
 			case 'SHIFT': {
-				if (displayedArrayIcons[0] !== undefined) {
-					handleShift();
-				}
-
+				if (displayedArrayIcons[0] !== undefined) handleShift();
 				break;
 			}
 			default: {
@@ -113,11 +103,13 @@ export default function ArrayVisualizer() {
 		newDisplayedArrayIcons.push(newUnAddedIcons[0]);
 		newUnAddedIcons.shift();
 
+		// Modify array of icons so the icon has "isAdded" as true and position corrected
 		newArrayIcons.filter((icon) => {
 			if (icon.value === unAddedIcons[0]) {
 				icon.isAdded = true;
 				icon.position = newDisplayedArrayIcons.length - 1;
 			} else if (icon.isAdded === false) {
+				// For the other icons in the array it was taken from, we shift them back one position to fill the space of the removed icon
 				icon.position = newUnAddedIcons.indexOf(icon.value);
 			}
 		});
@@ -137,11 +129,13 @@ export default function ArrayVisualizer() {
 		);
 		newDisplayedArrayIcons.pop();
 
+		// Modify array of icons so the icon has "isAdded" as false and position corrected
 		newArrayIcons.filter((icon) => {
 			if (icon.value === newUnAddedIcons[newUnAddedIcons.length - 1]) {
 				icon.isAdded = false;
 				icon.position = newUnAddedIcons.length - 1;
 			} else if (icon.isAdded === false) {
+				// For the other icons in the array it was taken from, we shift them forward one position to fill the space of the removed icon
 				icon.position = newUnAddedIcons.indexOf(icon.value);
 			}
 		});
@@ -159,13 +153,16 @@ export default function ArrayVisualizer() {
 		newDisplayedArrayIcons.unshift(unAddedIcons[0]);
 		newUnAddedIcons.shift();
 
+		// Modify array of icons so the icon has "isAdded" as true and position corrected to be positioned at the beginning of the array
 		newArrayIcons.filter((icon) => {
 			if (icon.value === unAddedIcons[0]) {
 				icon.isAdded = true;
 				icon.position = 0;
 			} else if (icon.isAdded === true) {
+				// For the other icons in the array it was added to, move them forward one position
 				icon.position++;
 			} else if (icon.isAdded === false) {
+				// For the other icons in the array it was taken from, we shift them back one position to fill the space of the removed icon
 				icon.position = newUnAddedIcons.indexOf(icon.value);
 			}
 		});
@@ -183,13 +180,16 @@ export default function ArrayVisualizer() {
 		newUnAddedIcons.push(newDisplayedArrayIcons[0]);
 		newDisplayedArrayIcons.shift();
 
+		// Modify array of icons so the icon has "isAdded" as true and position corrected to be positioned at the end of the array
 		newArrayIcons.filter((icon) => {
 			if (icon.value === newUnAddedIcons[newUnAddedIcons.length - 1]) {
 				icon.isAdded = false;
 				icon.position = newUnAddedIcons.length - 1;
 			} else if (icon.isAdded === true) {
+				// For the other icons in the array it was removed from, move them back one position
 				icon.position--;
 			} else if (icon.isAdded === false) {
+				// For the other icons in the array it was added to, we shift them forward one position to fill the space of the removed icon
 				icon.position = newUnAddedIcons.indexOf(icon.value);
 			}
 		});
@@ -203,7 +203,7 @@ export default function ArrayVisualizer() {
 
 	return (
 		<section className='visualizer-container'>
-			<ArrayWrapper displayedArrayIcons={displayedArrayIcons}>
+			<ArrayWrapper>
 				{arrayIcons.map((icon) => (
 					<ArrayIcon ball={icon} />
 				))}
