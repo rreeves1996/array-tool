@@ -11,7 +11,8 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 				<div className='method-button-container'>
 					<button
 						className='method-button'
-						onClick={() => handleMethod('UNSHIFT')}>
+						onClick={() => handleMethod('UNSHIFT')}
+						data-testid='method-button'>
 						<code>.unshift()</code>
 					</button>
 
@@ -21,7 +22,8 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 				<div className='method-button-container'>
 					<button
 						className='method-button'
-						onClick={() => handleMethod('PUSH')}>
+						onClick={() => handleMethod('PUSH')}
+						data-testid='method-button'>
 						<code>.push()</code>
 					</button>
 
@@ -31,7 +33,8 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 				<div className='method-button-container'>
 					<button
 						className='method-button'
-						onClick={() => handleMethod('SHIFT')}>
+						onClick={() => handleMethod('SHIFT')}
+						data-testid='method-button'>
 						<code>.shift()</code>
 					</button>
 
@@ -39,7 +42,10 @@ export default function ArrayMethods({ handleMethod }: ArrayMethodsProps) {
 				</div>
 
 				<div className='method-button-container'>
-					<button className='method-button' onClick={() => handleMethod('POP')}>
+					<button
+						className='method-button'
+						onClick={() => handleMethod('POP')}
+						data-testid='method-button'>
 						<code>.pop()</code>
 					</button>
 
