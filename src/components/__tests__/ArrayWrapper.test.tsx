@@ -1,4 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import ArrayWrapper from '../ArrayWrapper';
 import ArrayIcon from '../ArrayIcon';
 
@@ -38,7 +40,7 @@ const ARRAY_ICONS = [
 
 afterEach(() => cleanup());
 
-test('should render array container and brackets', () => {
+test('should render array container', () => {
 	render(
 		<ArrayWrapper>
 			{ARRAY_ICONS.map((icon, index) => (
@@ -48,6 +50,19 @@ test('should render array container and brackets', () => {
 	);
 	const appWrapperElement = screen.getByTestId('array-container');
 	expect(appWrapperElement).toBeInTheDocument;
-	const bracketElements = screen.getAllByTestId('bracket');
-	expect(bracketElements).toBeInTheDocument;
+});
+
+test('should render brackets', () => {
+	render(
+		<ArrayWrapper>
+			{ARRAY_ICONS.map((icon, index) => (
+				<ArrayIcon key={index} ball={icon} />
+			))}
+		</ArrayWrapper>
+	);
+	const leftBracketElement = screen.getByTestId('left-bracket');
+	const rightBracketElement = screen.getByTestId('right-bracket');
+	expect(leftBracketElement && rightBracketElement).toBeInTheDocument;
+	expect(leftBracketElement).toHaveTextContent('[');
+	expect(rightBracketElement).toHaveTextContent(']');
 });
