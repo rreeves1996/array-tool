@@ -5,7 +5,7 @@ import './assets/style/style.css';
 
 function App() {
 	return (
-		<div className='app-wrapper'>
+		<div className='app-wrapper' data-testid='app-wrapper'>
 			<main>
 				<section className='app-container'>
 					<header>
